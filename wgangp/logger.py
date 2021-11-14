@@ -45,15 +45,16 @@ class Logger:
         x = len(self.d_loss)
         for y, title in zip(self.train_ys, self.train_titles):
             plt.clf()
-            plt.plot(np.arange(x), y)
+            plt.plot(np.arange(1, x + 1), y)
             plt.xlabel('Iteration')
             plt.ylabel('Loss')
             plt.title(title)
             plt.savefig(os.path.join(self.path, title.replace(' ', '_') + '.png'))
 
     def plot_test(self):
+        step = len(self.d_loss) // len(self.test_d_loss)
         plt.clf()
-        plt.plot(np.arange(len(self.test_d_loss)), self.test_d_loss)
+        plt.plot(np.arange(1, len(self.test_d_loss) + 1) * step, self.test_d_loss)
         plt.xlabel('Iteration')
         plt.ylabel('Loss')
         plt.title('Test Discriminator Loss')
