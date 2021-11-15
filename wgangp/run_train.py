@@ -24,7 +24,7 @@ def train(args):
     generator = get_generator(args.dataset, args.noise_dim, device)
     discriminator = get_discriminator(args.dataset, device)
 
-    g_trainer = GeneratorTrainer(generator, args.batch_size, args.generator_iters, args.optimizer, args.lr)
+    g_trainer = GeneratorTrainer(generator, args.batch_size, args.generator_iters, args.optimizer, args.lr, betas=(args.betas0, args.betas1))
     d_trainer = DiscriminatorTrainer(discriminator,
                                      args.batch_size, args.critic_iters,
                                      args.optimizer, args.lr,

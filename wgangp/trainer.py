@@ -11,19 +11,19 @@ OPTIMIZER = {
 supported_optimizers = OPTIMIZER.keys()
 
 
-def get_optimizer(model, key, lr):
+def get_optimizer(model, key, lr, **kwargs):
     if key not in supported_optimizers:
         raise KeyError('{key} optimizer is not supported.'.format(key=key))
-    optimizer = OPTIMIZER[key](model.parameters(), lr=lr)
+    optimizer = OPTIMIZER[key](model.parameters(), lr=lr, **kwargs)
     return optimizer
 
 
 class GeneratorTrainer:
-    def __init__(self, generator, batch_size, train_num=1, optimizer='adam', lr=1e-3):
+    def __init__(self, generator, batch_size, train_num=1, optimizer='adam', lr=1e-3, **optim_kwargs):
         self.generator = generator
         self.batch_size = batch_size
         self.train_num = train_num
-        self.optimizer = get_optimizer(self.generator, optimizer, lr)
+        self.optimizer = get_optimizer(self.generator, optimizer, lr, **optim_kwargs)
 
     def _step(self, discriminator):
         noise = self.generator.get_noise(self.batch_size)

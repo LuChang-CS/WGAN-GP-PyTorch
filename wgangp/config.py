@@ -14,6 +14,8 @@ def parse_args():
     parser.add_argument('--iters', default=200000, type=int)
     parser.add_argument('--optimizer', default='adam', type=str)
     parser.add_argument('--lr', default=1e-4, type=float)
+    parser.add_argument('--betas0', default=0.5, type=float)
+    parser.add_argument('--betas1', default=0.9, type=float)
 
     parser.add_argument('--lambda_', default=10, type=float)
     parser.add_argument('--k', default=1, type=int)
