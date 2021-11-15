@@ -20,7 +20,7 @@ Official Repo with Tensorflow 1.x and Python 2: [improved_wgan_training](https:/
 
 ### Before training
 ```bash
-git clone
+git clone https://github.com/LuChang-CS/WGAN-GP-PyTorch.git
 cd wgangp
 ```
 
