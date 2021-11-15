@@ -59,7 +59,8 @@ class DiscriminatorTrainer:
         self.criterion = WGANGPLoss(discriminator, lambda_=lambda_, k=k)
 
     def _step(self, real_data, generator):
-        fake_data = generator.sample(self.batch_size)
+        batch_size = len(real_data)
+        fake_data = generator.sample(batch_size)
         loss, wasserstein_distance = self.criterion(real_data, fake_data)
 
         self.optimizer.zero_grad()
