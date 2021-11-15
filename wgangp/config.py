@@ -8,7 +8,7 @@ def parse_args():
     parser.add_argument('--seed', default='6666', type=int)
     parser.add_argument('--dataset', default='mnist', type=str, choices=['mnist', 'cifar10'])
     parser.add_argument('--noise_dim', default=128, type=int)
-    parser.add_argument('--batch_size', default=50, type=int)
+    parser.add_argument('--batch_size', default=50, type=int)  # 64 for cifar10
     parser.add_argument('--critic_iters', default=5, type=int)
     parser.add_argument('--generator_iters', default=1, type=int)
     parser.add_argument('--iters', default=200000, type=int)
